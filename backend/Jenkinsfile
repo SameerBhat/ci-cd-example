@@ -1,6 +1,8 @@
 pipeline {
     agent any
+    tools { nodejs "node22" }
     environment {
+        PATH = "$PATH:$WORKSPACE/node_modules/.bin"
         DOCKER_IMAGE = 'sameerbhat/testbackend:latest'
     }
     stages {
