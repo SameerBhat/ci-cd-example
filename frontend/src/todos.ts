@@ -6,7 +6,7 @@ import fetch from 'node-fetch';
 
 // Initialize the express app
 const app = express();
-const port = 8080;
+const port = 8081;
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -33,5 +33,5 @@ app.get('/todos', async (req: Request, res: Response) => {
 
 // Start listening on the specified port
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Frontend is running on port ${port}`);
 });

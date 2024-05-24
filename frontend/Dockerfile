@@ -4,9 +4,9 @@ WORKDIR /app
 COPY package.json /app/package.json
 RUN npm install
 
-COPY todos.js /app/todos.ts
+COPY dist/todos.js /app/todos.js
 
-EXPOSE 8080
+EXPOSE 8081
 
-ENTRYPOINT [ "node", "todos.ts" ]
+ENTRYPOINT [ "node", "todos.js" ]
 
