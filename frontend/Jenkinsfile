@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = 'sameerbhat/testbackend:latest'
+        DOCKER_IMAGE = 'sameerbhat/testfrontend:latest'
     }
     stages {
         stage('Checkout') {
@@ -9,10 +9,10 @@ pipeline {
                 git 'https://github.com/SameerBhat/ci-cd-example.git'
             }
         }
-        stage('Build Backend') {
+        stage('Build frontend') {
             steps {
                 script {
-                    sh 'cd backend'
+                    sh 'cd frontend'
                     sh 'npm install'
                     sh 'npm run build'
                 }
