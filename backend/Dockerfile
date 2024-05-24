@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY package.json /app
 
-COPY server.js /app
+COPY dist/server.js /app/server.js
 
 RUN npm install
 
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "server.ts"]
+ENTRYPOINT ["node", "server.js"]
