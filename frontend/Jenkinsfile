@@ -11,22 +11,27 @@ pipeline {
                 git 'https://github.com/SameerBhat/ci-cd-example.git'
             }
         }
-        stage('Build frontend') {
-            steps {
-                script {
-                    sh 'cd frontend'
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-            }
-        }
-        stage('Docker Build and Push') {
-            steps {
-                script {
-                    docker.build(env.DOCKER_IMAGE).push()
-                }
-            }
-        }
+       stage('Build frontend') {
+           steps {
+               script {
+                   sh '''
+                       cd frontend
+                       npm install
+                       npm run build
+                   '''
+               }
+           }
+       }
+       stage('Docker Build and Push') {
+           steps {
+               script {
+                   dir('frontend') {
+                       docker.build(env.DOCKER_IMAGE).push()
+                   }
+               }
+           }
+       }
+
         stage('Cleanup') {
             steps {
                 sh "docker rmi $DOCKER_IMAGE"

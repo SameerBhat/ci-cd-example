@@ -13,17 +13,21 @@ pipeline {
         }
         stage('Build Backend') {
             steps {
-                script {
-                    sh 'cd backend'
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
+                 script {
+                                   sh '''
+                                       cd frontend
+                                       npm install
+                                       npm run build
+                                   '''
+                               }
             }
         }
         stage('Docker Build and Push') {
             steps {
                 script {
-                    docker.build(env.DOCKER_IMAGE).push()
+                     dir('frontend') {
+                                           docker.build(env.DOCKER_IMAGE).push()
+                                       }
                 }
             }
         }
