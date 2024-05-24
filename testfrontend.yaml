@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testfrontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testfrontend
+  template:
+    metadata:
+      labels:
+        app: testfrontend
+    spec:
+      containers:
+      - name: testfrontend
+        image: sameerbhat/testfrontend:latest
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: testfrontend
+spec:
+  selector:
+    app: testfrontend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: NodePort

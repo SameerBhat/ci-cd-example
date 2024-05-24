@@ -1,0 +1,16 @@
+{
+  "name": "simple-nodejs-server",
+  "version": "1.0.0",
+  "description": "Simple Node.js Server",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "tsc -p ."
+  },
+  "author": "Aline Bastos",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.12.12"
+  }
+}

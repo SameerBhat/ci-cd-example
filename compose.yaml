@@ -1,0 +1,18 @@
+services:
+  testfrontend:
+    # container_name: testfrontend
+    # build: ./frontend
+    # image: testfrontend
+    ports:
+      - "8080:8080"
+    networks:
+      - sameer-network  
+  testbackend:
+    # container_name: testbackend
+    build: ./backend
+    # image: testbackend
+    networks:
+      - sameer-network
+networks:
+  sameer-network:
+    driver: bridge
