@@ -1,0 +1,21 @@
+# Backend configuration
+backend:
+  name: testbackend
+  replicas: 1
+  containerName: testbackend
+  image: sameerbhat/testbackend:latest
+  service:
+    name: testbackend
+    port: 3000
+    targetPort: 3000
+
+# Frontend configuration
+frontend:
+  name: testfrontend
+  replicas: 1
+  containerName: testfrontend
+  image: sameerbhat/testfrontend:latest
+  service:
+    name: testfrontend
+    port: 8080
+    targetPort: 8080
