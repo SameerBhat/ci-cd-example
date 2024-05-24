@@ -1,3 +1,6 @@
+SETPS TO RUN THE BACKEND
+npm install
+
 npm run build
 docker build -t testbackend .
 

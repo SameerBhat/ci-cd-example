@@ -15,7 +15,7 @@ pipeline {
             steps {
                  script {
                                    sh '''
-                                       cd frontend
+                                       cd backend
                                        npm install
                                        npm run build
                                    '''
@@ -25,8 +25,9 @@ pipeline {
         stage('Docker Build and Push') {
             steps {
                 script {
-                     dir('frontend') {
-                                           docker.build(env.DOCKER_IMAGE).push()
+                     dir('backend') {
+                                           docker.build(env.DOCKER_IMAGE).push(
+                                           )
                                        }
                 }
             }
